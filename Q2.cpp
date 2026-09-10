@@ -238,6 +238,7 @@ void printStructure(Node *root)
 
 int main()
 {
+    //Added comment inside main
     Node *root;
 
     // Build Initial_BST
