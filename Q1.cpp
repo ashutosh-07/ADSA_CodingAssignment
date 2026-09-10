@@ -297,7 +297,7 @@ int main()
         cout << "INSERT " << key << endl;
         if (search(root, key)==NULL)
         {
-            insert(root, key);
+            root  = insert(root, key);
             printStructure(root);
             
         }
@@ -320,7 +320,7 @@ int main()
         cout << "DELETE " << key << endl;
         if (search(root, key)!=NULL)
         {
-            deleteNode(root, key);
+            root = deleteNode(root, key);
             printStructure(root);
         }
         else
