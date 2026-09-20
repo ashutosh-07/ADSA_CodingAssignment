@@ -10,3 +10,25 @@ Q3 -> Red Black tree has few important points:
 3. All Path from a node to NILL discedent has equal number of black nodes
 4. Red node can't have red children
 5. The longest path(root to furtherest NILL) <= 2 x The shortlest path(Root to nearest NIL) Shortest path: all black nodes, Longest path: Black mixed with red nodes.
+
+              RBT INSERT
+                   ↓
+             Color new node RED
+                   ↓
+             Is it root?
+              /          \
+            YES           NO
+             ↓             ↓
+          BLACK       Is parent RED?
+                         /       \
+                       NO         YES
+                       ↓           ↓
+                      DONE    Find uncle
+                                  |
+                         ┌────────┴────────┐
+                         ↓                 ↓
+                    Uncle RED         Uncle BLACK
+                         ↓                 ↓
+                     Recolor         Rotation(s)
+                         ↓                 ↓
+                   Move upward        Recolor
