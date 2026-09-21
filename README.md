@@ -10,9 +10,14 @@ This repository contains my coding assignments for ADSA.
     3. All Path from a node to NILL discedent has equal number of black nodes
     4. Red node can't have red children
     5. The longest path(root to furtherest NILL) <= 2 x The shortlest path(Root to nearest NIL) Shortest path: all black nodes, Longest path: Black mixed with red nodes.
+<<<<<<< Updated upstream
   
                        
          Color new node RED
+=======
+
+    Color new node RED
+>>>>>>> Stashed changes
                ↓
          Is it root?
           /          \
@@ -28,6 +33,12 @@ This repository contains my coding assignments for ADSA.
                      ↓                 ↓
                 Uncle RED         Uncle BLACK
                      ↓                 ↓
+<<<<<<< Updated upstream
                  Recolor         Rotation(s)
                      ↓                 ↓
                Move upward        Recolor
+=======
+                 Recolor         Rotation(RR, LL, LR, RL)
+                     ↓                 ↓
+               Move upward        Recolor          
+>>>>>>> Stashed changes
