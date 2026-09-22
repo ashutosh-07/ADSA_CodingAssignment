@@ -2,7 +2,6 @@
 using namespace std;
 #include <queue>
 
-// Structure of the node
 struct Node
 {
     int data;
@@ -274,7 +273,7 @@ Node *insert(Node *root, int key)
 
 
 // x is a BLACK leaf that is about to be deleted. It is still attached to the tree
-// and acts as the "double black" node. Fixes black heights, returns the (possibly new) root.
+// and acts as the "double black" node. Fixes black heights and returns the (possibly new) root.
 Node* fixDelete(Node* root, Node* x)
 {
     while(x != root)
@@ -497,12 +496,11 @@ Node* fixDelete(Node* root, Node* x)
             }
         }
     }
-    return root; // x reached the root, extra black just disappears
+    return root;
 }
  
 Node *deleteNode(Node *root, int key)
 {
-    // find the node
     Node *temp = root;
     while(temp != NULL && temp->data != key)
     {
@@ -514,37 +512,35 @@ Node *deleteNode(Node *root, int key)
     if(temp == NULL)
         return root;
  
-    // two children: copy inorder successor's data, then remove the successor node
     if(temp->left != NULL && temp->right != NULL)
     {
         Node* successor = temp->right;
         while(successor->left != NULL)
             successor = successor->left;
         temp->data = successor->data;
-        temp = successor; // temp is now the node that physically leaves the tree
+        temp = successor; 
     }
  
-    // temp has at most one child now
     if(temp->left == NULL && temp->right == NULL) // leaf
     {
-        if(temp->parent == NULL) // only node in the tree
+        if(temp->parent == NULL)
         {
             delete temp;
             return NULL;
         }
  
-        if(temp->color == 0) // black leaf: fix black heights while it is still attached
+        if(temp->color == 0) 
         {
             root = fixDelete(root, temp);
         }
  
-        Node* parentNode = temp->parent; // x always stays a child of the same parent during the fix
+        Node* parentNode = temp->parent; 
         if(parentNode->left == temp)
             parentNode->left = NULL;
         else
             parentNode->right = NULL;
     }
-    else // one child: temp is black and the child is red
+    else 
     {
         Node* childNode;
         if(temp->left != NULL)

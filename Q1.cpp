@@ -173,6 +173,7 @@ Node *deleteNode(Node *root, int key)
             temp = temp->right;
         }
     }
+    return NULL;
 }
 
 void printInOrder(Node *root)

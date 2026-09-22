@@ -1,5 +1,9 @@
 .cph/
 .vscode/
 Q1
-Q1.bin
-Q6.bin
+# Q1.bin
+# Q6.bin
+# Q7.bin
+# Q8.bin
+# Q10.bin
+*.bin
