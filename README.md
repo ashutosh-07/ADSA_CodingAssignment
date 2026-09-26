@@ -98,40 +98,4 @@ This repository contains my coding assignments for ADSA.
                          │              │                         │
                          │              │                         ↓
                          └──────────────┴─────────────────────── DONE
-        DONE             Does it have RED child?
-                              │
-                    ┌─────────┴─────────┐
-                    ↓                   ↓
-                   YES                  NO
-                    │                   │
-                    ↓                   ↓
-              Make child BLACK       DOUBLE BLACK
-                    │                   │
-                  DONE                  ↓
-                              Look at sibling S
-                                      │
-                         ┌────────────┴────────────┐
-                         ↓                         ↓
-                    S is RED                 S is BLACK
-                         │                         │
-                         ↓                         ↓
-                  Rotate + recolor          Both S children
-                         │                   BLACK?
-                         │                         │
-                         │              ┌──────────┴──────────┐
-                         │              ↓                     ↓
-                         │             YES                    NO
-                         │              │                     │
-                         │              ↓                     ↓
-                         │        S → RED             One child RED
-                         │        DB → parent                 │
-                         │              │             ┌───────┴───────┐
-                         │              │             ↓               ↓
-                         │              │          NEAR RED        FAR RED
-                         │              │             │               │
-                         │              │             ↓               ↓
-                         │              │       Rotate sibling   Rotate parent
-                         │              │       → Case 4         + recolor
-                         │              │                         │
-                         │              │                         ↓
-                         └──────────────┴─────────────────────── DONE
+        
