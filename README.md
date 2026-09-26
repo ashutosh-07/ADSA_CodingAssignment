@@ -12,6 +12,8 @@ This repository contains my coding assignments for ADSA.
     5. The longest path(root to furtherest NILL) <= 2 x The shortlest path(Root to nearest NIL) Shortest path: all black nodes, Longest path: Black mixed with red nodes.
 
 
+#Insertion of key in RBT
+        Inserted Node as Red
                ↓
          Is it root?
           /          \
@@ -30,3 +32,106 @@ This repository contains my coding assignments for ADSA.
                  Recolor         Rotation(RR, LL, LR, RL)
                      ↓                 ↓
                Move upward        Recolor          
+
+
+
+#Deletion of key in RBT
+                 DELETE KEY
+                     │
+                     ↓
+              Normal BST delete
+                     │
+                     ↓
+        Which node was physically removed?
+                     │
+          ┌──────────┴──────────┐
+          ↓                     ↓
+        RED                    BLACK
+          │                     │
+          ↓                     ↓                 DELETE KEY
+                     │
+                     ↓
+              Normal BST delete
+                     │
+                     ↓
+        Which node was physically removed?
+                     │
+          ┌──────────┴──────────┐
+          ↓                     ↓
+        RED                    BLACK
+          │                     │
+          ↓                     ↓
+        DONE             Does it have RED child?
+                              │
+                    ┌─────────┴─────────┐
+                    ↓                   ↓
+                   YES                  NO
+                    │                   │
+                    ↓                   ↓
+              Make child BLACK       DOUBLE BLACK
+                    │                   │
+                  DONE                  ↓
+                              Look at sibling S
+                                      │
+                         ┌────────────┴────────────┐
+                         ↓                         ↓
+                    S is RED                 S is BLACK
+                         │                         │
+                         ↓                         ↓
+                  Rotate + recolor          Both S children
+                         │                   BLACK?
+                         │                         │
+                         │              ┌──────────┴──────────┐
+                         │              ↓                     ↓
+                         │             YES                    NO
+                         │              │                     │
+                         │              ↓                     ↓
+                         │        S → RED             One child RED
+                         │        DB → parent                 │
+                         │              │             ┌───────┴───────┐
+                         │              │             ↓               ↓
+                         │              │          NEAR RED        FAR RED
+                         │              │             │               │
+                         │              │             ↓               ↓
+                         │              │       Rotate sibling   Rotate parent
+                         │              │       → Case 4         + recolor
+                         │              │                         │
+                         │              │                         ↓
+                         └──────────────┴─────────────────────── DONE
+        DONE             Does it have RED child?
+                              │
+                    ┌─────────┴─────────┐
+                    ↓                   ↓
+                   YES                  NO
+                    │                   │
+                    ↓                   ↓
+              Make child BLACK       DOUBLE BLACK
+                    │                   │
+                  DONE                  ↓
+                              Look at sibling S
+                                      │
+                         ┌────────────┴────────────┐
+                         ↓                         ↓
+                    S is RED                 S is BLACK
+                         │                         │
+                         ↓                         ↓
+                  Rotate + recolor          Both S children
+                         │                   BLACK?
+                         │                         │
+                         │              ┌──────────┴──────────┐
+                         │              ↓                     ↓
+                         │             YES                    NO
+                         │              │                     │
+                         │              ↓                     ↓
+                         │        S → RED             One child RED
+                         │        DB → parent                 │
+                         │              │             ┌───────┴───────┐
+                         │              │             ↓               ↓
+                         │              │          NEAR RED        FAR RED
+                         │              │             │               │
+                         │              │             ↓               ↓
+                         │              │       Rotate sibling   Rotate parent
+                         │              │       → Case 4         + recolor
+                         │              │                         │
+                         │              │                         ↓
+                         └──────────────┴─────────────────────── DONE
